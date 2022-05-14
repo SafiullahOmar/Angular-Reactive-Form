@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-4">
-      <form action="">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" action="">
 
         <div class="form-group">
           <label for="" class="firstName">First Name:</label>
