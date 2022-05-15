@@ -10,12 +10,12 @@
 
         <div class="form-group">
           <label for="" class="firstName">Last Name:</label>
-          <input type="text" class="form-control">
+          <input type="text" formControlName="firstName" [ngClass]="{'is-invalid': submitted&&registerForm.controls.firstName.errors}" class="form-control">
         </div>
 
 
         <div class="form-group">
-          <label for="Email" class="firstName">Email:</label>
+          <label for="Email" formControlName="Email" [ngClass]="{'is-invalid':submitted&&registerForm.controls.Email.errors}" class="firstName">Email:</label>
           <input type="text" class="form-control">
         </div>
 

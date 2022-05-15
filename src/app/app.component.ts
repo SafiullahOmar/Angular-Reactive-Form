@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,22 @@ import { FormGroup } from '@angular/forms';
 export class AppComponent {
   title = 'ReactiveForm';
   registerForm!:FormGroup;
+  submitted=false;
 
+  constructor (private formBuilder :FormBuilder){}
+  ngOnInit(){
+    this.registerForm=this.formBuilder.group({
+      firstName:['',Validators.required]
+    });
+  }
+
+  onSubmit(){
+    this.submitted=true;
+    if(this.registerForm.invalid)
+    return;
+
+    alert("Sucess");
+
+  }
 
 }
