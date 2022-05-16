@@ -28,6 +28,7 @@
             [ngClass]="{'is-invalid':submitted && registerForm.controls['Email'].errors}" class="form-control">
           <div *ngIf="submitted && registerForm.controls['Email'].errors" class="text-danger">
             <div *ngIf="registerForm.controls['Email'].errors['required']">Email Name is required</div>
+            <div *ngIf="registerForm.controls['Email'].errors['email']">Email should be in Correct format</div>
           </div>
         </div>
 
