@@ -14,7 +14,10 @@ export class AppComponent {
   constructor (private formBuilder :FormBuilder){}
   ngOnInit(){
     this.registerForm=this.formBuilder.group({
-      firstName:['',Validators.required]
+      firstName:['',Validators.required],
+      lastName:['',Validators.required],
+      Email:['',Validators.required],
+      Password:['',Validators.required]
     });
   }
 
