@@ -46,4 +46,37 @@
       </form>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-6">
+
+      <h1>Parent Component</h1>
+      <hr>
+      <div class=" form-group">
+        <div class="form-group">
+          <label for="" class="firstName">First Name:</label>
+          <input type="text" #firstname class="form-control">
+
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="" class="lastName">last Name:</label>
+        <input type="text" #lastname  class="form-control">
+
+      </div>
+
+      <div class="form-group mt-5">
+        <button class="btn btn-block btn-primary" (click)="getValue(firstname.value,lastname.value)" >Submit</button>
+        {{message}}
+      </div>
+
+
+    </div>
+    <div class="col-md-6">
+      <h1>Child Component</h1>
+      <hr>
+      <app-child [childData]="objParrent"></app-child>
+    </div>
+
+
+  </div>
 </div>

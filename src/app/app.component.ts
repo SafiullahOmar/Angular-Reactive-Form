@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { last } from 'rxjs';
+import { ChildComponent } from './child/child.component';
+
 
 @Component({
   selector: 'app-root',
@@ -7,9 +10,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChild(ChildComponent) viewdata!:ChildComponent;
+
   title = 'ReactiveForm';
   registerForm!:FormGroup;
   submitted=false;
+  objParrent={"firstName":'',"lastName":''};
+  message:string='';
+  
+  getValue(firstName:any,lastName:any){
+    this.objParrent={"firstName":firstName,"lastName":lastName};
+     this.message= this.viewdata.updateData(this.objParrent);     
+    }
 
   constructor (private formBuilder :FormBuilder){}
   ngOnInit(){
@@ -24,6 +36,7 @@ export class AppComponent {
   }
 
   onSubmit(){
+
     this.submitted=true;
     if(this.registerForm.invalid)
     return;
@@ -31,5 +44,6 @@ export class AppComponent {
     alert("Sucess");
 
   }
+
 
 }
