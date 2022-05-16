@@ -17,11 +17,16 @@ export class AppComponent {
   submitted=false;
   objParrent={"firstName":'',"lastName":''};
   message:string='';
-  
+
+  updateTitle(title:any){
+    this.title=title;
+  }
   getValue(firstName:any,lastName:any){
     this.objParrent={"firstName":firstName,"lastName":lastName};
      this.message= this.viewdata.updateData(this.objParrent);     
     }
+
+
 
   constructor (private formBuilder :FormBuilder){}
   ngOnInit(){
