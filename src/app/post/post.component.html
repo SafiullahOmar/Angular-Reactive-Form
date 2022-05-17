@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="col-md-12">
+        <form [formGroup]="formPost" (ngSubmit)="OnPost();" action="">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" formControlName="Name" class="form-control">
+                <div class="help-text" *ngIf="!formPost.controls['Name'].valid && !formPost.controls['Name'].touched">
+                    Name is Required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Content</label>
+                <textarea class="form-control" formControlName="Content"></textarea>
+                <div class="help-text" *ngIf="!formPost.controls['Content'].valid && !formPost.controls['Content'].touched">
+                    Name is Required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Add POst</button>
+            </div>
+        </form>
+    </div>
+</div>
