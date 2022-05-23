@@ -7,13 +7,15 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { ChildComponent } from './child/child.component';
 import { PostComponent } from './post/post.component';
 import {HttpClientModule} from '@angular/common/http';
+import { NestedFormArrayComponent } from './nested-form-array/nested-form-array.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ChildComponent,
-    PostComponent
+    PostComponent,
+    NestedFormArrayComponent
   ],
   imports: [
     BrowserModule,

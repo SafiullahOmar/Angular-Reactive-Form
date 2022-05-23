@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators ,FormArray, FormControl } from '@angular/forms';
 import { last } from 'rxjs';
 import { ChildComponent } from './child/child.component';
 
@@ -11,43 +11,21 @@ import { ChildComponent } from './child/child.component';
 })
 export class AppComponent {
   @ViewChild(ChildComponent) viewdata!:ChildComponent;
-
-  title = 'ReactiveForm';
-  registerForm!:FormGroup;
-  submitted=false;
-  objParrent={"firstName":'',"lastName":''};
-  message:string='';
-
-  updateTitle(title:any){
-    this.title=title;
-  }
-  getValue(firstName:any,lastName:any){
-    this.objParrent={"firstName":firstName,"lastName":lastName};
-     this.message= this.viewdata.updateData(this.objParrent);     
-    }
-
-
-
-  constructor (private formBuilder :FormBuilder){}
+  fb!:FormGroup;
+  form:any;
+  constructor (){}
   ngOnInit(){
-
-    this.registerForm=this.formBuilder.group({
-      firstName:['',Validators.required],
-      lastName:['',Validators.required],
-      Email:['',[Validators.required,Validators.email]],
-      Password:['',[Validators.required,Validators.min(4)]]
-    });
+this.form=new FormGroup({
+  ContactNos:new FormArray([
+    new FormControl('24324'),
+    new FormControl('23434')
+  ])
+});
 
   }
 
-  onSubmit(){
-
-    this.submitted=true;
-    if(this.registerForm.invalid)
-    return;
-
-    alert("Sucess");
-
+  AddControl(){
+    this.form.get('ContactNos').push(new FormControl());
   }
 
 
