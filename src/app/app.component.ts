@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators ,FormArray, FormControl } from '@angular/forms';
-import { last } from 'rxjs';
-import { ChildComponent } from './child/child.component';
 
+import { ChildComponent } from './child/child.component';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +20,23 @@ this.form=new FormGroup({
     new FormControl('24324'),
     new FormControl('23434')
   ])
+
 });
+
+  $(function(){
+    $(".btn").on("click",function(){
+    alert();
+    
+      var div=$("#div");
+      div.animate({left:"100px"},"slow");
+      div.animate({fontsize:"5em"},"slow");
+      
+    }); 
+
+    
+  });
+
+
 
   }
 
